@@ -30,6 +30,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <h2>Designed by Emmanuel S Giraldo</h2>
+      <h3>Hola desde prueba en vite </h3>
     </>
   );
 }

@@ -29,6 +29,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <h1>porfin lo entiendo jeejej</h1>
       <h2>Designed by Emmanuel S Giraldo</h2>
       <h3>Hola desde prueba en vite </h3>
       <h4>segunda prueba desde vite </h4>

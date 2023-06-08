@@ -1,14 +1,29 @@
-import  { Component } from 'react';
+// import React from 'react';
+import { Component } from 'react';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 import styles from './App.module.scss';
+
+const localStorageKey = 'contacts';
 
 class App extends Component {
   state = {
     contacts: [],
     filter: '',
   };
+
+  // Este método se ejecuta después de que el componente se monta en el DOM.
+  componentDidMount() {
+    // Intentamos obtener los contactos almacenados en el local storage.
+    const storedContacts = localStorage.getItem(localStorageKey);
+
+    if (storedContacts) {
+      // Si hay contactos almacenados, los parseamos y los establecemos en el estado de la aplicación.
+      const parsedContacts = JSON.parse(storedContacts);
+      this.setState({ contacts: parsedContacts });
+    }
+  }
 
   addContact = (name, number) => {
     const { contacts } = this.state;
@@ -19,7 +34,10 @@ class App extends Component {
     };
     const updatedContacts = [...contacts, newContact];
 
-    this.setState({ contacts: updatedContacts });
+    // Actualizamos el estado de los contactos y guardamos los cambios en el local storage.
+    this.setState({ contacts: updatedContacts }, () => {
+      localStorage.setItem(localStorageKey, JSON.stringify(updatedContacts));
+    });
   };
 
   generateId = () => {
@@ -42,7 +60,10 @@ class App extends Component {
     const { contacts } = this.state;
     const updatedContacts = contacts.filter(contact => contact.id !== id);
 
-    this.setState({ contacts: updatedContacts });
+    // Actualizamos el estado de los contactos y guardamos los cambios en el local storage.
+    this.setState({ contacts: updatedContacts }, () => {
+      localStorage.setItem(localStorageKey, JSON.stringify(updatedContacts));
+    });
   };
 
   render() {

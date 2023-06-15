@@ -1,31 +1,31 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './ContactForm.module.scss';
+import { Component } from "react";
+import PropTypes from "prop-types";
+import styles from "./ContactForm.module.scss";
 
 class ContactForm extends Component {
   state = {
-    name: '',
-    number: '',
+    name: "",
+    number: "",
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { name, number } = this.state;
 
     this.props.onAddContact(name, number);
-    this.setState({ name: '', number: '' });
+    this.setState({ name: "", number: "" });
   };
 
   render() {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit} className={styles['contact-form']}>
+      <form onSubmit={this.handleSubmit} className={styles["contact-form"]}>
         <label>
           Name:
           <input

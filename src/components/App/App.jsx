@@ -1,16 +1,16 @@
 // import React from 'react';
-import { Component } from 'react';
-import ContactForm from '../ContactForm/ContactForm';
-import ContactList from '../ContactList/ContactList';
-import Filter from '../Filter/Filter';
-import styles from './App.module.scss';
+import { Component } from "react";
+import ContactForm from "../ContactForm/ContactForm";
+import ContactList from "../ContactList/ContactList";
+import Filter from "../Filter/Filter";
+import styles from "./App.module.scss";
 
-const localStorageKey = 'contacts';
+const localStorageKey = "contacts";
 
 class App extends Component {
   state = {
     contacts: [],
-    filter: '',
+    filter: "",
   };
 
   // Este método se ejecuta después de que el componente se monta en el DOM.
@@ -44,21 +44,21 @@ class App extends Component {
     return `id-${Math.random().toString(36).substr(2, 9)}`;
   };
 
-  handleFilterChange = event => {
+  handleFilterChange = (event) => {
     this.setState({ filter: event.target.value });
   };
 
   getFilteredContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
+    return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
 
-  deleteContact = id => {
+  deleteContact = (id) => {
     const { contacts } = this.state;
-    const updatedContacts = contacts.filter(contact => contact.id !== id);
+    const updatedContacts = contacts.filter((contact) => contact.id !== id);
 
     // Actualizamos el estado de los contactos y guardamos los cambios en el local storage.
     this.setState({ contacts: updatedContacts }, () => {

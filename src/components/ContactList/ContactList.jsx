@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './ContactList.module.scss';
+import { Component } from "react";
+import PropTypes from "prop-types";
+import styles from "./ContactList.module.scss";
 
 class ContactList extends Component {
   render() {
@@ -8,7 +8,7 @@ class ContactList extends Component {
 
     return (
       <ul className={styles.contactList}>
-        {contacts.map(contact => (
+        {contacts.map((contact) => (
           <li key={contact.id} className={styles.contactItem}>
             <span className={styles.contactName}>{contact.name}: </span>
             <span className={styles.contactNumber}>{contact.number}</span>

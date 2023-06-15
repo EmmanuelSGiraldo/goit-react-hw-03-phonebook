@@ -1,7 +1,7 @@
 ##goit-react-hw-03-phonebook
 
 ##Phonebook Application
-This is a phonebook application built with Vite and React. 
+This is a phonebook application built with Vite and React.
 It allows users to manage their contacts and stores the data locally using local storage.
 
 ##Requirements
@@ -12,16 +12,14 @@ npm
 Clone the repository.
 Run npm install to install the dependencies.
 Run npm i gh-pages -D.
-Run npm install node-sass -D.
-Run npm install notifly -D.
-Run npm install axios.
+Run npm install sass -D.
+
 
 ##Usage
 Run npm run dev to start the development server.
 Open your browser and go to http://localhost:5173 to view the application.
 Contribution
 Contribute to the project by following these steps:
-
 
 ##Fork the repository.
 Create a new branch for your feature (git checkout -b new-feature).
